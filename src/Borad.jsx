@@ -1,42 +1,53 @@
 import Todo from "./Todo"
 
-const toDoList = [
-  {
-    id: 1,
-    title: "Water my plants",
-    isCompleted: false,
-  },
-  {
-    id: 2,
-    title: "Go to the gym",
-    isCompleted: false,
-  },
-  {
-    id: 3,
-    title: "Buy groceries",
-    isCompleted: false,
-  },
-]
+function ToDoList() {
+    const toDoList = [
+      {
+        id: 1,
+        title: "Water my plants",
+        isCompleted: false,
+      },
+      {
+        id: 2,
+        title: "Go to the gym",
+        isCompleted: false,
+      },
+      {
+        id: 3,
+        title: "Buy groceries",
+        isCompleted: false,
+      },
+    ];
+
+    const todoLists = toDoList.map((item) => {
+      return <Todo key={item.id} content={item}/>
+    });
+
+    return (
+      <div className="todo-list">
+        {todoLists}
+      </div>
+    )
+}
+
 
 export default function Board() {
-  
-  // console.log(toDoList[0]);
+
   return (
     <div className="board">
-      <h3>Board</h3>
-
+      <h2>Coco's Todo List</h2>
       <div className="user-input">
         <p>What is your plan today</p>
       </div>
       <div>
-        <div>
-          A placehoder for status
-          <p>The to do list should have 3 "filter": All, Active, Completed</p>
+        {/* TO DO handle filter */}
+        <div className="filter-button">
+            <button onclick="filterAll()">All</button>
+            <button onclick="filterActive()">Active</button>
+            <button onclick="filterCompleted()">Completed</button>                    
         </div>
-        <Todo content={toDoList}/>
-      </div>
-      
-      
+        <ToDoList />
+      </div>      
     </div>
   )
 }
