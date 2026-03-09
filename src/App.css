@@ -13,10 +13,18 @@
   color: #888;
 }
 
-.user-input {
+.user-input-conditioner {
   margin: 2rem 0;
-  padding: 0.1rem 2rem;
-  border: black 1px solid;  
+}
+
+form {  
+  display: inline-flex;  
+  gap:1rem;
+}
+
+.user-input {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
 }
 
 .filter-button {
@@ -41,6 +49,11 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+.submit-button {
+  padding: 0.5rem;
+  font-weight: 400;
 }
 
 .todo-item {
