@@ -1,6 +1,6 @@
 function ToDoItem({item, handleStatusChange}) {  
   return (
-    <div key={item.id} className="todo-item" >
+    <div className="todo-item" >
       <div>
           <input 
             id={item.title} className="check-button" type="checkbox" 
@@ -16,7 +16,7 @@ function ToDoItem({item, handleStatusChange}) {
 export default function ToDoList({toDoList, handleStatusChange}) {   
   const todoLists = toDoList.map((item) => {
     if (item.isShow) {
-      return <ToDoItem item={item} handleStatusChange={handleStatusChange}/>
+      return <ToDoItem key={item.id} item={item} handleStatusChange={handleStatusChange}/>
     }    
   });
 
@@ -26,5 +26,3 @@ export default function ToDoList({toDoList, handleStatusChange}) {
     </div>
   )
 }
-
-// 
