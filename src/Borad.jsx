@@ -64,7 +64,7 @@ export default function Board() {
   return (
     <div className="board">
       <h2>Coco's Todo List</h2>
-      <UserInput />    
+      <UserInput toDoList={toDoList} setToDoList={setToDoList}/>    
       <Filter showActive={showActive} showCompleted={showCompleted} showAll={showAll}/>
       <ToDoList toDoList={toDoList} handleStatusChange={handleStatusChange}/>          
     </div>

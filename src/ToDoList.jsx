@@ -6,7 +6,7 @@ function ToDoItem({item, handleStatusChange}) {
             id={item.title} className="check-button" type="checkbox" 
             checked={item.isCompleted} onChange={() => handleStatusChange(item.id)} 
           />
-          <label for={item.title}> {item.title} </label>
+          <label> {item.title} </label>
       </div>
       <p className="todo-status"> {item.isCompleted ? "Completed" : "Active"} </p>
     </div>
