@@ -14,11 +14,7 @@ function ToDoItem({item, handleStatusChange}) {
 }
 
 export default function ToDoList({toDoList, handleStatusChange}) {   
-  const todoLists = toDoList.map((item) => {
-    if (item.isShow) {
-      return <ToDoItem key={item.id} item={item} handleStatusChange={handleStatusChange}/>
-    }    
-  });
+  const todoLists = toDoList.map((item) => item.isShow && <ToDoItem key={item.id} item={item} handleStatusChange={handleStatusChange}/>);
 
   return (
     <div className="todo-list">

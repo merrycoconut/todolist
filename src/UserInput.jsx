@@ -1,15 +1,7 @@
-export default function UserInput({toDoList, setToDoList}) {    
+export default function UserInput({handleAdd}) {    
     function handleSubmit(formData) {        
-        const userInput = formData.get("userInput")
-        setToDoList([...toDoList, 
-            {
-                id: toDoList.length + 1,
-                title: userInput,
-                isCompleted: false,
-                isShow: true,
-            }
-        ])
-        
+        const userInput = formData.get("userInput");
+        handleAdd(userInput);        
     }
 
     return (
