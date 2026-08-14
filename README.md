@@ -1,5 +1,5 @@
 # A simple To Do List
-A simple to do list created with React and JavaScript. 
+A simple to do list created with React and TypeScript. 
 
 ## Installation
 1. Use the package manager npm to install all needed packages.
