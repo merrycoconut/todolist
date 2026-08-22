@@ -1,3 +1,6 @@
+import { RiAddCircleFill } from "@remixicon/react";
+import "./UserInput.css";
+
 type UserInputProps = {
   handleAdd: (userInput: string) => void;
 };
@@ -17,7 +20,7 @@ export default function UserInput({ handleAdd }: UserInputProps) {
           placeholder="What is your plan today?  "
         />
         <button className="submit-button" type="submit">
-          +
+          <RiAddCircleFill size={30} />
         </button>
       </form>
     </div>

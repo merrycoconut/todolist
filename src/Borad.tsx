@@ -118,7 +118,7 @@ export default function Board() {
 
   return (
     <div className="board">
-      <h2>A simple Todo List</h2>
+      <h2 className="header">A simple Todo List</h2>
       <UserInput handleAdd={handleAdd} />
       <Filter
         showActive={showActive}

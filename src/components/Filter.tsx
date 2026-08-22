@@ -1,3 +1,5 @@
+import "./Filter.css";
+
 type FilterProps = {
   showActive: () => void;
   showCompleted: () => void;
@@ -9,10 +11,16 @@ export default function Filter({
   showAll,
 }: FilterProps) {
   return (
-    <div className="filter-button">
-      <button onClick={showAll}>All</button>
-      <button onClick={showActive}>Active</button>
-      <button onClick={showCompleted}>Completed</button>
+    <div className="filter-button-container">
+      <button className="filter-button" onClick={showAll}>
+        All
+      </button>
+      <button className="filter-button" onClick={showActive}>
+        Active
+      </button>
+      <button className="filter-button" onClick={showCompleted}>
+        Completed
+      </button>
     </div>
   );
 }

@@ -1,0 +1,20 @@
+.filter-button-container {
+  padding-bottom: 1rem;
+  display: flex;
+  gap: 2rem;
+  color: #e34432;
+}
+
+.filter-button {
+  padding: 0;
+  color: #e34432;
+}
+
+.filter-button:focus {
+  padding: 0;
+  color: #e34432;
+  outline: none;
+  border: none;
+  text-decoration: underline;
+  font-weight: 700;
+}

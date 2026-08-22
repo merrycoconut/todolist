@@ -1,0 +1,49 @@
+.todo-item-container {
+  margin: 1rem 0;
+  padding: 0.5rem;
+  border: black 1px solid;
+  border-radius: 0.5rem;
+}
+.todo-item {
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 0.5rem;
+}
+
+.user-input-editted {
+  /* padding: 0rem 0.5rem; */
+  outline: none;
+  border: none;
+  border-bottom: black solid 1px;
+}
+
+.check-button {
+  margin: 0.5rem;
+  padding: 0.5rem;
+}
+
+input:checked + label {
+  text-decoration: line-through;
+  color: #888;
+}
+
+.todo-buttons {
+  display: flex;
+  gap: 1rem;
+  color: #e34432;
+}
+
+.todo-status {
+  text-align: right;
+  margin: 0 0 0 1rem;
+  font-size: 0.8rem;
+  color: gray;
+}
+
+.todo-active {
+  color: green;
+}
+.todo-complete {
+  color: #e34432;
+}

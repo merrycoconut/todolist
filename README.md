@@ -32,4 +32,3 @@ This project was built to practice:
 ## Future Improvements
 
 - Add localStorage support
-- Improve UI/UX

@@ -1,35 +1,16 @@
 #root {
   max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  margin: 2rem 4rem;
 }
 
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
-
-.user-input-conditioner {
-  margin: 2rem 0;
+.header {
+  text-align: left;
+  color: #e34432;
 }
 
 form {
   display: inline-flex;
   gap: 1rem;
-}
-
-.user-input {
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
-}
-
-.filter-button {
-  display: flex;
-  gap: 0.5rem;
 }
 
 button {
@@ -39,44 +20,7 @@ button {
   font-size: 1em;
   font-weight: 600;
   font-family: inherit;
-  background-color: #f2f0f0;
+  background-color: white;
   cursor: pointer;
   transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-.submit-button {
-  padding: 0.5rem;
-  font-weight: 400;
-}
-
-.todo-item {
-  margin: 1rem;
-  padding: 0.5rem;
-  border: black 1px solid;
-  border-radius: 0.5rem;
-  text-align: left;
-}
-
-.check-button {
-  margin: 0.5rem;
-  padding: 0.5rem;
-}
-
-input:checked + label {
-  text-decoration: line-through;
-  color: #888;
-}
-
-.todo-status {
-  text-align: right;
-  margin: 0 0 0 1rem;
-  font-size: 0.8rem;
-  color: gray;
 }

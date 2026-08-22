@@ -1,6 +1,7 @@
+import "./ToDoItem.css";
 import type { ToDo } from "../utils/types";
 import { useState } from "react";
-import { RiPencilLine, RiDeleteBinLine } from "@remixicon/react";
+import { RiPencilLine, RiCheckLine, RiDeleteBinLine } from "@remixicon/react";
 
 type ToDoItemProps = {
   item: ToDo;
@@ -18,34 +19,48 @@ export default function ToDoItem({
   const [isClick, setClick] = useState(false);
 
   return (
-    <div className="todo-item">
-      <div>
-        <input
-          id={item.todoText}
-          className="check-button"
-          type="checkbox"
-          checked={item.isCompleted}
-          onChange={() => handleStatusChange(item.id)}
-        />
-        {/* Use click to trigger if render the plain content or userinput component */}
+    <div className="todo-item-container">
+      <div className="todo-item">
+        <div>
+          <input
+            id={item.todoText}
+            className="check-button"
+            type="checkbox"
+            checked={item.isCompleted}
+            onChange={() => handleStatusChange(item.id)}
+          />
+          {/* Use click to trigger if render the plain content or userinput component */}
 
-        {isClick ? (
-          <>
-            <input
-              className="user-input-editted"
-              name="userInputEditted"
-              defaultValue={item.todoText}
-              onChange={(e) => handleEdit(item.id, e.target.value)}
-            />
-          </>
-        ) : (
-          <label> {item.todoText} </label>
-        )}
+          {isClick ? (
+            <>
+              <input
+                className="user-input-editted"
+                name="userInputEditted"
+                defaultValue={item.todoText}
+                onChange={(e) => handleEdit(item.id, e.target.value)}
+              />
+            </>
+          ) : (
+            <label> {item.todoText} </label>
+          )}
+        </div>
+        <div className="todo-buttons">
+          {isClick ? (
+            <RiCheckLine size={20} onClick={() => setClick(!isClick)} />
+          ) : (
+            <RiPencilLine size={20} onClick={() => setClick(!isClick)} />
+          )}
 
-        <RiPencilLine onClick={() => setClick(!isClick)} />
-        <RiDeleteBinLine onClick={() => handleDelete(item.id)} />
+          <RiDeleteBinLine size={20} onClick={() => handleDelete(item.id)} />
+        </div>
       </div>
-      <p className="todo-status">
+      <p
+        className={
+          item.isCompleted
+            ? "todo-status todo-complete"
+            : "todo-status todo-active"
+        }
+      >
         {" "}
         {item.isCompleted ? "Completed" : "Active"}{" "}
       </p>
