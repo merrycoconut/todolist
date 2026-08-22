@@ -5,12 +5,14 @@ type ToDoListProps = {
   toDoList: ToDo[];
   handleStatusChange: (id: number) => void;
   handleEdit: (id: number, userInput: string) => void;
+  handleDelete: (id: number) => void;
 };
 
 export default function ToDoList({
   toDoList,
   handleStatusChange,
   handleEdit,
+  handleDelete,
 }: ToDoListProps) {
   const todoLists = toDoList.map(
     (item) =>
@@ -20,6 +22,7 @@ export default function ToDoList({
           item={item}
           handleStatusChange={handleStatusChange}
           handleEdit={handleEdit}
+          handleDelete={handleDelete}
         />
       ),
   );

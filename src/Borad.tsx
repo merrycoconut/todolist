@@ -36,6 +36,13 @@ export default function Board() {
     });
   }
 
+  function handleDelete(id: number) {
+    dispatch({
+      type: "delete-task",
+      id: id,
+    });
+  }
+
   function showActive() {
     dispatch({
       type: "showActive",
@@ -75,6 +82,10 @@ export default function Board() {
           }
           return item;
         });
+      }
+
+      case "delete-task": {
+        return toDoList.filter((item) => item.id !== action.id);
       }
 
       case "change-task-status": {
@@ -118,6 +129,7 @@ export default function Board() {
         toDoList={toDoList}
         handleStatusChange={handleStatusChange}
         handleEdit={handleEdit}
+        handleDelete={handleDelete}
       />
     </div>
   );

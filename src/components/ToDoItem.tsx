@@ -1,17 +1,19 @@
 import type { ToDo } from "../utils/types";
 import { useState } from "react";
-import { RiPencilLine } from "@remixicon/react";
+import { RiPencilLine, RiDeleteBinLine } from "@remixicon/react";
 
 type ToDoItemProps = {
   item: ToDo;
   handleStatusChange: (id: number) => void;
   handleEdit: (id: number, userInput: string) => void;
+  handleDelete: (id: number) => void;
 };
 
 export default function ToDoItem({
   item,
   handleStatusChange,
   handleEdit,
+  handleDelete,
 }: ToDoItemProps) {
   const [isClick, setClick] = useState(false);
 
@@ -41,6 +43,7 @@ export default function ToDoItem({
         )}
 
         <RiPencilLine onClick={() => setClick(!isClick)} />
+        <RiDeleteBinLine onClick={() => handleDelete(item.id)} />
       </div>
       <p className="todo-status">
         {" "}
