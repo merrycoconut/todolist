@@ -15,6 +15,7 @@ A simple to do list created with React and TypeScript.
 - Add new tasks
 - Mark tasks as completed
 - Filter tasks by status (Active/ Compeleted)
+- Edit current tasks
 
 ## Project Purepose
 This project was built to practice:
@@ -24,5 +25,4 @@ This project was built to practice:
 
 ## Future Improvements
 - Add localStorage support
-- Allow editing tasks
 - Improve UI/UX

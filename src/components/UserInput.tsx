@@ -4,17 +4,17 @@ type UserInputProps = {
 
 export default function UserInput({ handleAdd }: UserInputProps) {
   function handleSubmit(formData: FormData) {
-    const userInput = formData.get("userInput");
-    handleAdd(userInput as string);
+    const userInput = formData.get("userInput") as string;
+      handleAdd(userInput);
   }
-
+  
   return (
     <div className="user-input-conditioner">
       <form action={handleSubmit}>
         <input
           className="user-input"
           name="userInput"
-          defaultValue="What is your plan today?  "
+          placeholder="What is your plan today?  "
         />
         <button className="submit-button" type="submit">
           +

@@ -1,13 +1,13 @@
-import UserInput from "./UserInput";
-import Filter from "./Filter";
-import ToDoList from "./ToDoList";
+import UserInput from "./components/UserInput";
+import Filter from "./components/Filter";
+import ToDoList from "./components/ToDoList";
 import { useReducer } from "react";
 import type { ToDo } from "./utils/types";
 
 type Action = {
   type?: string;
   id?: number;
-  text?: string;
+  todoText?: string;
 };
 
 export default function Board() {
@@ -24,7 +24,15 @@ export default function Board() {
     dispatch({
       type: "add-task",
       id: nextId++,
-      text: userInput,
+      todoText: userInput,
+    });
+  }
+
+  function handleEdit(id: number, userInput: string) {
+    dispatch({
+      type: "edit-task",
+      id: id,
+      todoText: userInput,
     });
   }
 
@@ -53,12 +61,22 @@ export default function Board() {
           ...toDoList,
           {
             id: action.id as number,
-            title: action.text as string,
+            todoText: action.todoText as string,
             isCompleted: false,
             isShow: true,
           },
         ];
       }
+
+      case "edit-task": {
+        return toDoList.map((item) => {
+          if (item.id === action.id && action.todoText) {
+            return { ...item, todoText: action.todoText };
+          }
+          return item;
+        });
+      }
+
       case "change-task-status": {
         return toDoList.map((item) => {
           if (item.id === action.id) {
@@ -89,14 +107,18 @@ export default function Board() {
 
   return (
     <div className="board">
-      <h2>Coco's Todo List</h2>
+      <h2>A simple Todo List</h2>
       <UserInput handleAdd={handleAdd} />
       <Filter
         showActive={showActive}
         showCompleted={showCompleted}
         showAll={showAll}
       />
-      <ToDoList toDoList={toDoList} handleStatusChange={handleStatusChange} />
+      <ToDoList
+        toDoList={toDoList}
+        handleStatusChange={handleStatusChange}
+        handleEdit={handleEdit}
+      />
     </div>
   );
 }
@@ -105,19 +127,19 @@ let nextId = 4;
 const initialToDoList = [
   {
     id: 1,
-    title: "Water my plants",
+    todoText: "Water my plants",
     isCompleted: false,
     isShow: true,
   },
   {
     id: 2,
-    title: "Go to the gym",
+    todoText: "Go to the gym",
     isCompleted: true,
     isShow: true,
   },
   {
     id: 3,
-    title: "Buy groceries",
+    todoText: "Buy groceries",
     isCompleted: false,
     isShow: true,
   },

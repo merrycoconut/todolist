@@ -1,6 +1,6 @@
 export type ToDo = {
   id: number;
-  title: string;
+  todoText: string;
   isCompleted: boolean;
   isShow: boolean;
 };
