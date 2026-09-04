@@ -21,6 +21,7 @@ A simple to do list created with React and TypeScript.
 - Mark tasks as completed
 - Filter tasks by status (Active/ Compeleted)
 - LocalStorage support
+- User input validation support
 
 ## Project Purepose
 
