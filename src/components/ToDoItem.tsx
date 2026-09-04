@@ -17,6 +17,7 @@ export default function ToDoItem({
   handleDelete,
 }: ToDoItemProps) {
   const [isClick, setClick] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
 
   return (
     <div className="todo-item-container">
@@ -37,8 +38,21 @@ export default function ToDoItem({
                 className="user-input-editted"
                 name="userInputEditted"
                 defaultValue={item.todoText}
-                onChange={(e) => handleEdit(item.id, e.target.value)}
+                onChange={(e) => {
+                  // User input validation
+                  const inputLength = e.target.value.length;
+                  if (inputLength < 4) {
+                    setErrorMsg("! Please enter more than 3 characters. ");
+                  } else if (inputLength > 50) {
+                    setErrorMsg("! Please enter less than 50 characters.");
+                  } else {
+                    setErrorMsg("");
+                    handleEdit(item.id, e.target.value);
+                  }
+                }}
+                minLength={3}
               />
+              <p className="error-msg">{errorMsg}</p>
             </>
           ) : (
             <label> {item.todoText} </label>
@@ -46,7 +60,17 @@ export default function ToDoItem({
         </div>
         <div className="todo-buttons">
           {isClick ? (
-            <RiCheckLine size={20} onClick={() => setClick(!isClick)} />
+            <RiCheckLine
+              size={20}
+              onClick={(e) => {
+                // If user input is invalid, unable button click
+                if (errorMsg.length > 0) {
+                  e.preventDefault();
+                } else {
+                  setClick(!isClick);
+                }
+              }}
+            />
           ) : (
             <RiPencilLine size={20} onClick={() => setClick(!isClick)} />
           )}

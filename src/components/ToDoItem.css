@@ -12,10 +12,16 @@
 }
 
 .user-input-editted {
-  /* padding: 0rem 0.5rem; */
   outline: none;
   border: none;
   border-bottom: black solid 1px;
+}
+
+.error-msg {
+  margin-top: 2px;
+  padding-left: 26px;
+  font-size: 0.9rem;
+  color: #e34432;
 }
 
 .check-button {

@@ -24,3 +24,8 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
+
+input:invalid {
+  border: 2px solid #e34432;
+  background-color: #fff8f6;
+}

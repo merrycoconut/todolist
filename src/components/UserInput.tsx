@@ -18,6 +18,8 @@ export default function UserInput({ handleAdd }: UserInputProps) {
           className="user-input"
           name="userInput"
           placeholder="What is your plan today?  "
+          minLength={3}
+          maxLength={50}
         />
         <button className="submit-button" type="submit">
           <RiAddCircleFill size={30} />
