@@ -1,8 +1,13 @@
 import UserInput from "./components/UserInput";
 import Filter from "./components/Filter";
 import ToDoList from "./components/ToDoList";
-import { useReducer } from "react";
+import { useEffect, useReducer } from "react";
 import type { ToDo } from "./utils/types";
+
+// Initial todos if localStorage is empty
+if (localStorage.length === 0) {
+  localStorage.setItem("todos", JSON.stringify([]));
+}
 
 type Action = {
   type?: string;
@@ -11,7 +16,10 @@ type Action = {
 };
 
 export default function Board() {
-  const [toDoList, dispatch] = useReducer(toDoReducer, initialToDoList);
+  const [toDoList, dispatch] = useReducer(
+    toDoReducer,
+    JSON.parse(localStorage.todos),
+  );
 
   function handleStatusChange(id: number) {
     dispatch({
@@ -116,6 +124,11 @@ export default function Board() {
     }
   }
 
+  // Use useEffect to update localStorage to the lastest State
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(toDoList));
+  }, [toDoList]);
+
   return (
     <div className="board">
       <h2 className="header">A simple Todo List</h2>
@@ -135,24 +148,4 @@ export default function Board() {
   );
 }
 
-let nextId = 4;
-const initialToDoList = [
-  {
-    id: 1,
-    todoText: "Water my plants",
-    isCompleted: false,
-    isShow: true,
-  },
-  {
-    id: 2,
-    todoText: "Go to the gym",
-    isCompleted: true,
-    isShow: true,
-  },
-  {
-    id: 3,
-    todoText: "Buy groceries",
-    isCompleted: false,
-    isShow: true,
-  },
-];
+let nextId = 1;

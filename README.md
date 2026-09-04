@@ -20,6 +20,7 @@ A simple to do list created with React and TypeScript.
 - Delete current tasks
 - Mark tasks as completed
 - Filter tasks by status (Active/ Compeleted)
+- LocalStorage support
 
 ## Project Purepose
 
@@ -28,7 +29,3 @@ This project was built to practice:
 - React state management
 - Component structure
 - Handling user input and events
-
-## Future Improvements
-
-- Add localStorage support
